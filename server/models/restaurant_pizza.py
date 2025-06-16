@@ -1,4 +1,4 @@
-from server.app import db
+from app import db
 from sqlalchemy.orm import validates
 
 class RestaurantPizza(db.Model):
@@ -8,8 +8,8 @@ class RestaurantPizza(db.Model):
     price = db.Column(db.Integer, nullable=False)
     
     # Foreign Keys
-    restaurants_id = db.Column(db.Integer, db.ForeignKey('restaurants.id'), nullable=False)
-    pizzas_id = db.Column(db.Integer, db.ForeignKey('pizza.id'), nullable=False)
+    restaurant_id = db.Column(db.Integer, db.ForeignKey('restaurants.id'), nullable=False)
+    pizza_id = db.Column(db.Integer, db.ForeignKey('pizzas.id'), nullable=False)
     
     # Relationship
     pizza = db.relationship('Pizza', backref='restaurant_pizzas')

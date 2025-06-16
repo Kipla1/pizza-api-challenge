@@ -6,7 +6,7 @@ from server.models.pizza import Pizza
 
 restaurant_pizza_bp = Blueprint('restaurant_pizzas', __name__)
 
-@restaurant_pizza_bp.route('/restaurant_pizzas', method=['POST'])
+@restaurant_pizza_bp.route('/restaurant_pizzas', methods=['POST'])
 def create_restaurant_pizza():
     try:
         data = request.get_json()
@@ -20,10 +20,10 @@ def create_restaurant_pizza():
         pizza = Pizza.query.get(data['pizza_id'])
         
         if not restaurant:
-            jsonify({'error': ['Restaurant not found']}), 404
+            return jsonify({'error': 'Restaurant not found'}), 404
             
         if not pizza:
-            jsonify({'error': ['Pizza not found']}), 404
+            return jsonify({'error': 'Pizza not found'}), 404
             
         # Create new RestaurantPizza(Validation happens automatically)
         restaurant_pizza = RestaurantPizza(
@@ -53,6 +53,6 @@ def create_restaurant_pizza():
         }), 201
         
     except ValueError as e:
-        return jsonify({{'errors': [str(e)]}}), 400
+        return jsonify({'errors': [str(e)]}), 400
     except Exception as e:
         return jsonify({'errors': 'An error occured while creating restaurant pizza'}), 400

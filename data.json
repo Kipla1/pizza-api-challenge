@@ -1,0 +1,40 @@
+{
+    "restaurants": [
+        {
+            "id": 1,
+            "name": "Dominos",
+            "address": "Kenyatta Avenue"
+        },
+        {
+            "id": 2,
+            "name": "Pizza Inn",
+            "address": "Moi Avenue"
+        }
+    ],
+    "pizzas": [
+        {
+            "id": 1,
+            "name": "Chicken Tikka",
+            "ingredients": "Chicken, Tikka Sauce"
+        },
+        {
+            "id": 2,
+            "name": "BBQ Steak",
+            "ingredients": "Steak, BBQ Sauce"
+        }
+    ],
+    "restaurant_pizzas": [
+        {
+            "id": 1,
+            "price": 12,
+            "pizza_id": 1,
+            "restaurant_id": 1
+        },
+        {
+            "id": 2,
+            "price": 15,
+            "pizza_id": 2,
+            "restaurant_id": 2
+        }
+    ]
+}
